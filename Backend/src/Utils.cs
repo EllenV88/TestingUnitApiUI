@@ -63,7 +63,58 @@ public static class Utils
         }
         return successFullyWrittenUsers;
     }
+    //Uppgift 4
+    public static Arr RemoveMockUsers()
+    {
+        Arr removedUsers = new Arr();
 
-    // Now write the two last ones yourself!
-    // See: https://sys23m-jensen.lms.nodehill.se/uploads/videos/2021-05-18T15-38-54/sysa-23-presentation-2024-05-02-updated.html#8
+        foreach (var user in mockUsers)
+        {
+            var email = user["email"];
+            var existingUser = SQLQueryOne(
+                @"SELECT id, firstName, lastName, email FROM users WHERE email = $email",
+                new { email });
+
+            if (existingUser["email"] == email)
+            {
+                var deleteResult = SQLQueryOne(
+                    @"DELETE FROM users WHERE email = $email RETURNING id, firstName, lastName, email", new { email });
+
+                if (!deleteResult.HasKey("error"))
+                {
+                    removedUsers.Push(deleteResult);
+                }
+            }
+        }
+        return removedUsers;
+    }
+
+    //Uppgift 5
+
+    public static Obj CountDomainsFromUserEmails()
+        {
+            // Get emails
+            Arr usersInDb = SQLQuery("SELECT email FROM users");
+            
+            // Map all domains in email
+            Arr domainsInDb = usersInDb.Map(user =>
+            {
+                string email = user.email;
+                int atIndex = email.IndexOf('@');
+                return email.Substring(atIndex + 1);
+            });
+
+            // Get number of domains 
+            Obj domainCounts = Obj();
+            foreach (var domain in domainsInDb)
+            {
+                if (domainCounts.HasKey(domain))
+                    domainCounts[domain]++;
+                else
+                domainCounts[domain] = 1;
+            }
+
+            return domainCounts;
+        }
+        
 }
