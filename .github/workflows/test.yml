@@ -45,7 +45,7 @@ jobs:
       shell: bash
       run: cd Backend && nohup dotnet run &
 
-    # Run the endpoint tests
+    # Run the endpoint tests.
     # (note: The reason we don't have to install Newman
     #  is that it is already installed in the 
     #  GitHub Actions Windows Server runner image)
