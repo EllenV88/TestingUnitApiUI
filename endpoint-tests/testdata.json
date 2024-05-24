@@ -2,18 +2,126 @@
   "counter": 0,
   "categories": [
     {
-      "name": "Grönsaker",
-      "description": "Färska grönsaker."
+      "name": "Cat toys",
+      "description": "Stimulating and sustainable fun toys for your cat."
     },
     {
-      "name": "Frukter",
-      "description": "Färska frukter."
+      "name": "Dog toys",
+      "description": "Fun and durable toys for your dog."
     },
     {
-      "name": "Rengöringsprodukter",
-      "description": "Allt du behöver för att hålla hemmet rent."
+      "name": "Cat food",
+      "description": "Quality food for cats of all ages"
+    },
+    {
+      "name": "Dog food",
+      "description": "Quality food for dogs of all ages"
     }
   ],
-  "products": [],
-  "comments": []
+  "products": [
+    {
+      "name": "Purina One",
+      "description": "Quality cat food",
+      "price": 130,
+      "categoryId": "Cat food"
+    },
+    {
+      "name": "Friskies Party Mix",
+      "description": "Crunchy and tasty cat treats",
+      "price": 50,
+      "categoryId": "Cat food"
+    },
+    {
+      "name": "Whiskas Temptations",
+      "description": "Savory snacks for your feline",
+      "price": 40,
+      "categoryId": "Cat food"
+    },
+    {
+      "name": "Royal Canin Kitten",
+      "description": "Specially formulated for growing kittens",
+      "price": 200,
+      "categoryId": "Cat food"
+    },
+    {
+      "name": "Taste of the Wild",
+      "description": "High-protein dog food with real meat",
+      "price": 180,
+      "categoryId": "Dog food"
+    },
+    {
+      "name": "Blue Buffalo Life Protection",
+      "description": "Natural dog food with added vitamins",
+      "price": 210,
+      "categoryId": "Dog food"
+    },
+    {
+      "name": "Greenies Dental Treats",
+      "description": "Dental chews for cleaner teeth and fresher breath",
+      "price": 60,
+      "categoryId": "Dog food"
+    },
+    {
+      "name": "KONG Classic Dog Toy",
+      "description": "Durable and versatile toy for dogs",
+      "price": 80,
+      "categoryId": "Dog toys"
+    },
+    {
+      "name": "Nylabone Dura Chew",
+      "description": "Long-lasting chew toy for aggressive chewers",
+      "price": 100,
+      "categoryId": "Dog toys"
+    },
+    {
+      "name": "Petstages Cat Tracks",
+      "description": "Interactive toy with moving balls for cats",
+      "price": 70,
+      "categoryId": "Cat toys"
+    },
+    {
+      "name": "SmartyKat Skitter Critters",
+      "description": "Set of 3 catnip mice for playful cats",
+      "price": 30,
+      "categoryId": "Cat toys"
+    },
+    {
+      "name": "Chuckit! Ultra Ball",
+      "description": "High-bounce ball perfect for fetch games",
+      "price": 40,
+      "categoryId": "Dog toys"
+    }
+  ],
+  "comments": [
+    {
+      "comment": "Great for my cat",
+      "productId": "Purina One",
+      "userId": 4
+    },
+    {
+      "comment": "My dog loves this food!",
+      "productId": "Taste of the Wild",
+      "userId": 5
+    },
+    {
+      "comment": "The best catnip toy out there.",
+      "productId": "SmartyKat Skitter Critters",
+      "userId": 4
+    },
+    {
+      "comment": "Keeps my dog entertained for hours.",
+      "productId": "KONG Classic Dog Toy",
+      "userId": 4
+    },
+    {
+      "comment": "Good value for the price.",
+      "productId": "Friskies Party Mix",
+      "userId": 5
+    },
+    {
+      "comment": "My kitten is thriving on this food.",
+      "productId": "Royal Canin Kitten",
+      "userId": 4
+    }
+  ]
 }
