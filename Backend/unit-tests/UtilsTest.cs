@@ -72,7 +72,39 @@ public class UtilsTest(Xlog Console)
         Assert.Equivalent(mockUsersNotInDb, result);
         Console.WriteLine("The test passed!");
     }
+    // Uppgift 4
+    [Fact]
+    public void TestRemoveMockUsers()
+    {
+        // Get all users from the database
+        Arr usersInDb = SQLQuery("SELECT id, email FROM users");
+        Arr mockEmails = mockUsers.Map(user => user.email);
+        Arr mockUsersInDb = usersInDb.Filter(user => mockEmails.Contains(user.email));
+        
+        // Get the result of running the method in our code
+        var result = Utils.RemoveMockUsers();
+        
+        // Assert that the RemoveMockUsers only returned
+        // removed mock users from the db
+        Console.WriteLine($"The test expected that {mockUsersInDb.Length} users should be removed.");
+        Console.WriteLine($"And {result.Length} users were removed.");
+        Console.WriteLine("The test also asserts that the users removed " +
+                        "are equivalent (the same) as the expected users!");
+        Assert.Equivalent(mockUsersInDb, result);
+        Console.WriteLine("The test passed!");
+    }
 
-    // Now write the two last ones yourself!
-    // See: https://sys23m-jensen.lms.nodehill.se/uploads/videos/2021-05-18T15-38-54/sysa-23-presentation-2024-05-02-updated.html#8
+     //Uppgift 5
+    [Fact]
+    public void TestCountDomainsFromUserEmails()
+    {
+        Obj actualCounts = Utils.CountDomainsFromUserEmails();
+
+        //known expected count
+        Obj expectedCounts = Obj();
+        expectedCounts["nodehill.com"] = 3;
+
+       Assert.Equal(expectedCounts.ToString(), actualCounts.ToString());
+       
+    }
 }
